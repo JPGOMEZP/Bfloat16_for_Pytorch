@@ -1,0 +1,37 @@
+#
+# This script performs a logarithmic operations for real numbers in single
+# precision.
+#
+
+# imports
+import torch as pt
+import os
+import sys
+import subprocess
+
+# matrix result to compare
+r = pt.tensor([1.17609])
+
+# first matrix in float32
+a = pt.tensor(15, dtype=pt.float32)
+
+# casting from flot32 to int32 to bfloat16
+pt.tensor(a, dtype=pt.int32)
+pt.tensor(a, dtype=pt.bfloat16)
+
+# logarithmic operation
+c = pt.log(a)
+
+# print and validate the resutl
+print(c)
+
+# addition
+c = pt.add(a, b)
+
+# comparing the result
+result = pt.eq(c,r)
+
+if result.all():
+    sys.exit(0)
+else:
+    sys.exit(1)
